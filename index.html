@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upright Smart Solution</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="assets/Logo.png">
+            <h3>Upright Smart</h3>
+            <small>Estate & Installment System</small>
+        </div>
+
+        <ul class="nav">
+            <li class="active" onclick="switchPage('rent')">🏠 Rent Business</li>
+            <li onclick="switchPage('installment')">💳 Installment Business</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- RENT BUSINESS -->
+        <section id="rentPage" class="page">
+            <div class="page-header">
+                <h2>Rent Management</h2>
+                <button onclick="openRenterForm()">+ Add Renter</button>
+            </div>
+
+            <div class="filters">
+                <input type="text" placeholder="Search by name, house, CNIC, phone" oninput="searchRenters(this.value)">
+                <input type="month" onchange="filterRentMonth(this.value)">
+            </div>
+
+            <div class="summary">
+                <div>Received: <span id="rentReceived">0</span></div>
+                <div>Pending: <span id="rentPending">0</span></div>
+            </div>
+
+            <div id="rentList" class="list"></div>
+        </section>
+
+        <!-- INSTALLMENT BUSINESS -->
+        <section id="installmentPage" class="page hidden">
+            <div class="page-header">
+                <h2>Installment Customers</h2>
+                <button onclick="openCustomerForm()">+ Add Customer</button>
+            </div>
+
+            <div class="filters">
+                <input type="text" placeholder="Search by name, CNIC, phone, invoice" oninput="searchInstallments(this.value)">
+                <input type="month" onchange="filterInstallmentMonth(this.value)">
+            </div>
+
+            <div class="summary">
+                <div>Paid: <span id="instPaid">0</span></div>
+                <div>Due: <span id="instDue">0</span></div>
+            </div>
+
+            <div id="installmentList" class="list"></div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
